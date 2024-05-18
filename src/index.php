@@ -21,7 +21,7 @@ return function ($context) {
     // $message = $context->req->query['message'];
 
 
-    $context->log($context->req->body);
+    $context->log(var_dump($context->req->body));
     return $context->res->json([
         'message' => 'Invalid phone number',
         'success' => false
