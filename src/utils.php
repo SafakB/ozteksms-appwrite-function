@@ -25,7 +25,7 @@ function throw_if_missing(mixed $obj, array $keys): void
             $missing[] = $key;
         }
     }
-    if (!empty($missing)) {
-        // throw new \Exception('Missing required fields: ' . implode(', ', $missing));
+    if (count($missing) > 0) {
+        throw new \Exception('Missing required fields: ' . implode(', ', $missing));
     }
 }
