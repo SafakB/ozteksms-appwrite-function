@@ -19,7 +19,8 @@ return function ($context) {
 
     $debug = sendSms($OZTEK_TEST_PHONE, 'Hello, World!');
 
-    $context->log($debug["message"] ?? 'No response');
+    $context->log("Json response");
+    return $context->res->json($debug);
    
 
     if ($context->req->method === 'GET') {     
