@@ -19,7 +19,7 @@ return function ($context) {
 
     $debug = sendSms($OZTEK_TEST_PHONE, 'Hello, World!');
 
-    $context->log($debug); 
+    $context->log($debug);
    
 
     if ($context->req->method === 'GET') {     

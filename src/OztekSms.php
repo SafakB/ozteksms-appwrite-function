@@ -60,6 +60,39 @@ class OztekSms{
         curl_setopt($ch, CURLOPT_TIMEOUT, 30);
         $response = curl_exec($ch);
         curl_close($ch);
-        return $response;
+
+        return $this->parseResponse($response);
+    }
+
+    function parseResponse($response) {
+        $result = [
+            "success" => true,
+            "message" => ""
+        ];
+    
+        $lines = explode("", trim($response));
+        foreach ($lines as $line) {
+            $parts = explode(":", $line);
+    
+            if (count($parts) == 7) {
+                if ($parts[0] == "1") {
+                    $result["message"] .= "1: Success";
+                } elseif ($parts[0] == "2") {
+                    $result["success"] = false;
+                    $result["message"] .= "2: Error";
+                } else {
+                    $result["success"] = false;
+                    $result["message"] .= "Unknown Error";
+                }
+            } elseif (count($parts) == 2 && $parts[0] == "2") {
+                $result["success"] = false;
+                $result["message"] .= "2: Error - " . $parts[1] . "";
+            } else {
+                $result["success"] = false;
+                $result["message"] .= "Unknown Error: " . $line . "";
+            }
+        }
+    
+        return $result;
     }
 }
