@@ -1,6 +1,6 @@
 <?php
 
-// require_once(__DIR__ . '/OztekSms.php');
+require_once(__DIR__ . '/OztekSms.php');
 
 /**
  * Returns the contents of a file in the static folder
@@ -38,5 +38,16 @@ function sendSms($to, $body)
     // $username = $_ENV['OZTEK_USERNAME'];
     // $password = $_ENV['OZTEK_PASSWORD'];
     // $orginator = $_ENV['OZTEK_ORIGINATOR'];
-    
+    // $sms = new OztekSms(
+    //     $_ENV['OZTEK_USER_ID'],
+    //     $_ENV['OZTEK_USERNAME'],
+    //     $_ENV['OZTEK_PASSWORD'],
+    //     $_ENV['OZTEK_ORIGINATOR']
+    // );
+    $sms = new OztekSms(
+        "11",
+        "11",
+        "11",
+        "11"
+    );
 }
