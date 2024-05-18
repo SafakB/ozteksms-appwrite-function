@@ -15,13 +15,15 @@ return function ($context) {
         "OZTEK_ORIGINATOR"
     ]);
 
+
+
     $to = $_ENV['OZTEK_TEST_PHONE'];
     $message = 'Hello, World!';
     // $to = $context->req->query['to'];
     // $message = $context->req->query['message'];
 
 
-    $context->log(var_dump($context->req->body));
+    $context->log($context->req->headers['content-type']);
     return $context->res->json([
         'message' => 'Invalid phone number',
         'success' => false
