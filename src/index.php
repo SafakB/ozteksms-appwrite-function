@@ -20,7 +20,7 @@ return function ($context) {
     // $to = $context->query['to'];
     // $message = $context->query['message'];
 
-    $result = sendSms($OZTEK_TEST_PHONE, 'Hello, World!');
+    $result = sendSms($to, $message);
     
     if(!isset($result['success'])){
         $context->log("Wrong response from sendSms function");
