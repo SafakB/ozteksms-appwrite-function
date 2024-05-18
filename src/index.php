@@ -15,7 +15,10 @@ return function ($context) {
         "OZTEK_ORIGINATOR"
     ]);
 
-    $OZTEK_TEST_PHONE = $_ENV['OZTEK_TEST_PHONE'];
+    $to = $_ENV['OZTEK_TEST_PHONE'];
+    $message = 'Hello, World!';
+    // $to = $context->query['to'];
+    // $message = $context->query['message'];
 
     $result = sendSms($OZTEK_TEST_PHONE, 'Hello, World!');
     
@@ -40,16 +43,4 @@ return function ($context) {
         'success' => true
     ]);
    
-
-    if ($context->req->method === 'GET') {     
-        return $context->res->send('Hello, World!'); 
-    }
-
-    // `res.json()` is a handy helper for sending JSON
-    return $context->res->json([
-        'motto' => 'Build like a team of hundreds_',
-        'learn' => 'https://appwrite.io/docs',
-        'connect' => 'https://appwrite.io/discord',
-        'getInspired' => 'https://builtwith.appwrite.io',
-    ]);
 };
