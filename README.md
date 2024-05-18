@@ -32,7 +32,7 @@ Sample `200` Response:
 }
 ```
 
-**Dart&Flutter Usage**
+## Dart & Flutter Usage
 
 ```dart
 import 'package:appwrite/appwrite.dart';
