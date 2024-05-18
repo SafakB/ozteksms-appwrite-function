@@ -17,12 +17,12 @@ return function ($context) {
 
     $OZTEK_TEST_PHONE = $_ENV['OZTEK_TEST_PHONE'];
 
-    $debug = sendSms($OZTEK_TEST_PHONE, 'Hello, World!');
-    $var_dum = var_dump($debug);
-    $context->log($var_dum);
+    $result = sendSms($OZTEK_TEST_PHONE, 'Hello, World!');
+ 
+    $context->log($result['success']);
     return $context->res->json([
         'message' => 'Hello, World!',
-        'debug' => $debug
+        'debug' => "aa"
     ]);
    
 
