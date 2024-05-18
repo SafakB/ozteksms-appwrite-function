@@ -1,24 +1,21 @@
 # ⚡ PHP Starter Function
 
-A simple starter function. Edit `src/index.php` to get started and create something awesome! 🚀
+Oztek SMS company is prepared for SMS sending. This function can work on Appwrite 🚀
 
 ## 🧰 Usage
 
-### GET /
+### POST /
 
-- Returns a "Hello, World!" message.
-
-**Response**
-
-Sample `200` Response:
-
-```text
-Hello, World!
+```
+Content-Type : application/json
 ```
 
-### POST, PUT, PATCH, DELETE /
-
-- Returns a "Learn More" JSON response.
+```json
+{
+"to":"+XXXXXXXXXX",
+"message":"Your message"
+}
+```
 
 **Response**
 
@@ -26,12 +23,11 @@ Sample `200` Response:
 
 ```json
 {
-  "motto": "Build like a team of hundreds_",
-  "learn": "https://appwrite.io/docs",
-  "connect": "https://appwrite.io/discord",
-  "getInspired": "https://builtwith.appwrite.io"
+  "status": true,
+  "message": "Sended message successfully"
 }
 ```
+
 
 ## ⚙️ Configuration
 
@@ -45,4 +41,9 @@ Sample `200` Response:
 
 ## 🔒 Environment Variables
 
-No environment variables required.
+```
+OZTEK_USER_ID=
+OZTEK_USERNAME=
+OZTEK_PASSWORD=
+OZTEK_ORIGINATOR=
+```
