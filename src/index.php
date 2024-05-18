@@ -17,8 +17,8 @@ return function ($context) {
 
     $to = $_ENV['OZTEK_TEST_PHONE'];
     $message = 'Hello, World!';
-    // $to = $context->req->query['to'];
-    // $message = $context->query['message'];
+    $to = $context->req->query['to'];
+    $message = $context->req->query['message'];
 
 
     if (!validatePhone($to)) {
