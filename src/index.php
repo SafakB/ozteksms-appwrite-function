@@ -22,19 +22,20 @@ return function ($context) {
         ]);
     }
 
-
-    $to = $_ENV['OZTEK_TEST_PHONE'];
-    $message = 'Hello, World!';
-    $to = $context->req->body['to'];
-    $message = $context->req->body['message'];
-
-    if (!isset($to) || !isset($message)) {
+    if (!isset($context->req->body['to']) || !isset($context->req->body['to'])) {
         $context->log("Missing required fields");
         return $context->res->json([
             'message' => 'Missing required fields',
             'success' => false
         ]);
     }
+
+    // $to = $_ENV['OZTEK_TEST_PHONE'];
+    // $message = 'Hello, World!';
+    $to = $context->req->body['to'];
+    $message = $context->req->body['message'];
+
+    
 
     if (!validatePhone($to)) {
         $context->log("Invalid phone number");
