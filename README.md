@@ -2,6 +2,10 @@
 
 Oztek SMS company is prepared for SMS sending. This function can work on Appwrite 🚀
 
+## Becareful
+
+No user restrictions or tokens are used in the function. I recommend removing `any` permission from the event access section
+
 ## 🧰 Usage
 
 ### POST /
