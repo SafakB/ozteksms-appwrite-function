@@ -16,6 +16,7 @@ return function ($context) {
     ]);
 
     if($context->req->headers['content-type'] !== 'application/json'){
+        $context->log("Invalid content type");
         return $context->res->json([
             'message' => 'Invalid content type',
             'success' => false
