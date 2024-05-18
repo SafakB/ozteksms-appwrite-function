@@ -31,7 +31,7 @@ return function ($context) {
         ]);
     }
 
-    if (!isset($context->req->body['to']) || !isset($context->req->body['to'])) {
+    if (!isset($context->req->body['to']) || !isset($context->req->body['message'])) {
         $context->log("Missing required fields");
         return $context->res->json([
             'message' => 'Missing required fields',
