@@ -46,8 +46,10 @@ function sendSms($to, $body)
     // );
     $sms = new OztekSms(
         "11",
-        "11",
-        "11",
-        "11"
+        "12",
+        "13",
+        "14"
     );
+    
+    return $sms->sendSmsTest("90","Hello, World!");
 }
