@@ -38,5 +38,5 @@ function sendSms($to, $body)
     // $username = $_ENV['OZTEK_USERNAME'];
     // $password = $_ENV['OZTEK_PASSWORD'];
     // $orginator = $_ENV['OZTEK_ORIGINATOR'];
-    throw new \Exception('Missing required fields: OZTEK_USER_ID, OZTEK_USERNAME, OZTEK_PASSWORD, OZTEK_ORIGINATOR');
+    
 }
