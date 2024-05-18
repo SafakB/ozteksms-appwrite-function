@@ -32,6 +32,33 @@ Sample `200` Response:
 }
 ```
 
+**Dart&Flutter Usage**
+
+```dart
+import 'package:appwrite/appwrite.dart';
+
+Client client = Client()
+    .setEndpoint('https://cloud.appwrite.io/v1') // Your API Endpoint
+    .setProject('5df5acd0d48c2'); // Your project ID
+
+Functions functions = Functions(client);
+
+var jsonData = {
+      "to": "+XXXXXXXXXX", // Receiver phone number, starts with +
+      "message": "Hello World with flutter", // Message
+};
+
+Execution result = await functions.createExecution(
+    functionId: '<FUNCTION_ID>', // Your function id
+    body: '/', 
+    xasync: false,
+    path: '/',
+    method: ExecutionMethod.pOST,
+    headers: {"Content-Type": "application/json"},
+);
+
+```
+
 
 ## ⚙️ Configuration
 
