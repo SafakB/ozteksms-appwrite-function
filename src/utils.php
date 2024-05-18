@@ -47,3 +47,21 @@ function sendSms($to, $body)
     
     return $sms->sendSms($to, $body);
 }
+
+/**
+ * Validates an international phone number
+ * @param string $phoneNumber
+ * @return bool
+ */
+
+function validatePhone($phoneNumber) {
+    // E.164 validate standart
+    $pattern = '/^\+?[1-9]\d{1,14}$/';
+
+    // Reges pattern for international phone number
+    if (preg_match($pattern, $phoneNumber)) {
+        return true;
+    } else {
+        return false;
+    }
+}

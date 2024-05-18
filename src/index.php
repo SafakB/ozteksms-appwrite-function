@@ -17,8 +17,18 @@ return function ($context) {
 
     $to = $_ENV['OZTEK_TEST_PHONE'];
     $message = 'Hello, World!';
-    // $to = $context->query['to'];
+    $to = $context->query['to'];
     // $message = $context->query['message'];
+
+
+    if (!validatePhone($to)) {
+        $context->log("Invalid phone number");
+        return $context->res->json([
+            'message' => 'Invalid phone number',
+            'success' => false
+        ]);
+    }
+
 
     $result = sendSms($to, $message);
     
