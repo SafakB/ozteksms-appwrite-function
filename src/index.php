@@ -17,7 +17,7 @@ return function ($context) {
 
     $to = $_ENV['OZTEK_TEST_PHONE'];
     $message = 'Hello, World!';
-    $to = $context->query['to'];
+    $to = $context->req->query['to'];
     // $message = $context->query['message'];
 
 
