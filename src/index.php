@@ -28,12 +28,13 @@ return function ($context) {
     $to = $context->req->body['to'];
     $message = $context->req->body['message'];
 
-
-    $context->log($to . " " . $message);
-    return $context->res->json([
-        'message' => 'Invalid phone number',
-        'success' => false
-    ]);
+    if (!isset($to) || !isset($message)) {
+        $context->log("Missing required fields");
+        return $context->res->json([
+            'message' => 'Missing required fields',
+            'success' => false
+        ]);
+    }
 
     if (!validatePhone($to)) {
         $context->log("Invalid phone number");
