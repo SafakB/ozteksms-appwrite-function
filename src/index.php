@@ -8,7 +8,7 @@ return function ($context) {
     //     "OZTEK_TEST_PHONE"
     // ]);
 
-    $OZTEK_TEST_PHONE = "+9";
+    $OZTEK_TEST_PHONE = $_ENV['OZTEK_TEST_PHONE'];
    
     $context->log('Hello, Logs!' . $OZTEK_TEST_PHONE); 
 
