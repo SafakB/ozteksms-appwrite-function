@@ -47,5 +47,5 @@ function sendSms($to, $body)
 
     $TEST_PHONE = $_ENV['OZTEK_TEST_PHONE'];
     
-    return $sms->sendSmsTest($TEST_PHONE,"Hello, World!");
+    return $sms->sendSms($TEST_PHONE,"Hello, World!");
 }
