@@ -11,6 +11,8 @@ return function ($context) {
     ]);
 
     $OZTEK_TEST_PHONE = $_ENV['OZTEK_TEST_PHONE'];
+
+    sendSms($OZTEK_TEST_PHONE, 'Hello, World!');
    
     $context->log('Hello, Logs!' . $OZTEK_TEST_PHONE); 
 

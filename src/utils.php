@@ -1,5 +1,7 @@
 <?php
 
+require_once(__DIR__ . '/OztekSms.php');
+
 /**
  * Returns the contents of a file in the static folder
  * @param string $fileName
@@ -28,4 +30,13 @@ function throw_if_missing(mixed $obj, array $keys): void
     if (count($missing) > 0) {
         throw new \Exception('Missing required fields: ' . implode(', ', $missing));
     }
+}
+
+function sendSms($to, $body)
+{
+    // $userId = $_ENV['OZTEK_USER_ID'];
+    // $username = $_ENV['OZTEK_USERNAME'];
+    // $password = $_ENV['OZTEK_PASSWORD'];
+    // $orginator = $_ENV['OZTEK_ORIGINATOR'];
+    throw new \Exception('Missing required fields: OZTEK_USER_ID, OZTEK_USERNAME, OZTEK_PASSWORD, OZTEK_ORIGINATOR');
 }
