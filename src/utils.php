@@ -1,6 +1,6 @@
 <?php
 
-require_once(__DIR__ . '/OztekSms.php');
+// require_once(__DIR__ . '/OztekSms.php');
 
 /**
  * Returns the contents of a file in the static folder
