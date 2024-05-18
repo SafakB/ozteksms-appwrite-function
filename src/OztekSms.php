@@ -60,5 +60,6 @@ class OztekSms{
         curl_setopt($ch, CURLOPT_TIMEOUT, 30);
         $response = curl_exec($ch);
         curl_close($ch);
+        return $response;
     }
 }
