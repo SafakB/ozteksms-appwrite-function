@@ -15,7 +15,7 @@ return function ($context) {
         "OZTEK_ORIGINATOR"
     ]);
 
-    if($context->req->headers['content-type'] !== 'application/json'){
+    if(isset($context->req->headers['content-type']) && $context->req->headers['content-type'] !== 'application/json'){
         $context->log("Invalid content type");
         return $context->res->json([
             'message' => 'Invalid content type',
