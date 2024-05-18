@@ -1,4 +1,4 @@
-# ⚡ PHP Starter Function
+# ⚡ OZTEK SMS API FOR APPWRITE FUNCTIONS
 
 Oztek SMS company is prepared for SMS sending. This function can work on Appwrite 🚀
 
