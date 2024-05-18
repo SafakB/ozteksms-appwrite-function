@@ -20,7 +20,10 @@ return function ($context) {
     // $to = $context->req->query['to'];
     // $message = $context->req->query['message'];
 
-    $context->log(json_encode($context->req->query));
+    $form = [];
+    parse_str($context->req->body, $form);
+
+    $context->log(var_dump($form));
     return $context->res->json([
         'message' => 'Invalid phone number',
         'success' => false
