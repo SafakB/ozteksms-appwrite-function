@@ -16,7 +16,7 @@ return function ($context) {
 
     $debug = sendSms($OZTEK_TEST_PHONE, 'Hello, World!');
 
-    return $context->res->html($debug,200, ['Content-Type' => 'text/html']);
+    return $context->res->send($debug,200, ['Content-Type' => 'text/html']);
    
     $context->log('Hello, Logs!' . $OZTEK_TEST_PHONE); 
     $context->error('Hello, Errors!');
