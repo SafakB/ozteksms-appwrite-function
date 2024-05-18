@@ -18,11 +18,26 @@ return function ($context) {
     $OZTEK_TEST_PHONE = $_ENV['OZTEK_TEST_PHONE'];
 
     $result = sendSms($OZTEK_TEST_PHONE, 'Hello, World!');
- 
-    $context->log($result['success']);
+    
+    if(!isset($result['success'])){
+        $context->log("Wrong response from sendSms function");
+        return $context->res->json([
+            'message' => 'Error88',
+            'success' => false
+        ]);
+    }
+
+    if(!$result['success']){
+        $context->log("Error: ".$result['message']);
+        return $context->res->json([
+            'message' => 'Error',
+            'success' => false
+        ]);
+    }
+    $context->log("Sended message successfully");
     return $context->res->json([
-        'message' => 'Hello, World!',
-        'debug' => "aa"
+        'message' => 'Sended message successfully',
+        'success' => true
     ]);
    
 
