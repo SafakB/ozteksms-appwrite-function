@@ -9,7 +9,10 @@ return function ($context) {
 
     throw_if_missing($_ENV, [
         "OZTEK_TEST_PHONE",
-        "OZTEK_TEST_VAR"
+        "OZTEK_USER_ID",
+        "OZTEK_USERNAME",
+        "OZTEK_PASSWORD",
+        "OZTEK_ORIGINATOR"
     ]);
 
     $OZTEK_TEST_PHONE = $_ENV['OZTEK_TEST_PHONE'];
@@ -17,11 +20,7 @@ return function ($context) {
     $debug = sendSms($OZTEK_TEST_PHONE, 'Hello, World!');
 
     $context->log($debug); 
-    return $context->res->send($debug,200, ['Content-Type' => 'text/html']);
    
-    $context->log('Hello, Logs!' . $OZTEK_TEST_PHONE); 
-    $context->error('Hello, Errors!');
-
 
     if ($context->req->method === 'GET') {     
         return $context->res->send('Hello, World!');
