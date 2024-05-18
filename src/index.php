@@ -23,7 +23,7 @@ return function ($context) {
    
 
     if ($context->req->method === 'GET') {     
-        return $context->res->send('Hello, World!');
+        return $context->res->send('Hello, World!'); 
     }
 
     // `res.json()` is a handy helper for sending JSON
