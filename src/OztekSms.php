@@ -64,33 +64,32 @@ class OztekSms{
         return $this->parseResponse($response);
     }
 
-    function parseResponse($response) {
+    function parseResponse($line) {
         $result = [
             "success" => true,
             "message" => ""
         ];
     
-        $lines = explode("", trim($response));
-        foreach ($lines as $line) {
-            $parts = explode(":", $line);
+        // Satırı : ile ayır
+        $parts = explode(":", $line);
     
-            if (count($parts) == 7) {
-                if ($parts[0] == "1") {
-                    $result["message"] .= "1: Success";
-                } elseif ($parts[0] == "2") {
-                    $result["success"] = false;
-                    $result["message"] .= "2: Error";
-                } else {
-                    $result["success"] = false;
-                    $result["message"] .= "Unknown Error";
-                }
-            } elseif (count($parts) == 2 && $parts[0] == "2") {
+        // Doğru formatta olup olmadığını kontrol et
+        if (count($parts) == 7) {
+            if ($parts[0] == "1") {
+                $result["message"] = "1: Başarılı";
+            } elseif ($parts[0] == "2") {
                 $result["success"] = false;
-                $result["message"] .= "2: Error - " . $parts[1] . "";
+                $result["message"] = "2: Hata";
             } else {
                 $result["success"] = false;
-                $result["message"] .= "Unknown Error: " . $line . "";
+                $result["message"] = "Hatalı format: Bilinmeyen durum kodu";
             }
+        } elseif (count($parts) == 2 && $parts[0] == "2") {
+            $result["success"] = false;
+            $result["message"] = "2: Hata - " . $parts[1];
+        } else {
+            $result["success"] = false;
+            $result["message"] = "Hatalı format: " . $line;
         }
     
         return $result;
