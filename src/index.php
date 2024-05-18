@@ -20,6 +20,12 @@ return function ($context) {
     $to = $context->req->query['to'];
     $message = $context->req->query['message'];
 
+    $dump = var_dump($context->req->query);
+    $context->log($dump);
+    return $context->res->json([
+        'message' => 'Invalid phone number',
+        'success' => false
+    ]);
 
     if (!validatePhone($to)) {
         $context->log("Invalid phone number");
