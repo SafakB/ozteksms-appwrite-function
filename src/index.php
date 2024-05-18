@@ -4,11 +4,11 @@ require_once(__DIR__ . '/../vendor/autoload.php');
 
 return function ($context) {
 
-    throw_if_missing($_ENV, [
-        "OZTEK_TEST_PHONE"
-    ]);
+    // throw_if_missing($_ENV, [
+    //     "OZTEK_TEST_PHONE"
+    // ]);
 
-    $OZTEK_TEST_PHONE = $_ENV['OZTEK_TEST_PHONE'];
+    $OZTEK_TEST_PHONE = "+9";
    
     $context->log('Hello, Logs!' . $OZTEK_TEST_PHONE); 
 
