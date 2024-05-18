@@ -20,7 +20,10 @@ return function ($context) {
     $debug = sendSms($OZTEK_TEST_PHONE, 'Hello, World!');
 
     $context->log("Json response");
-    return $context->res->json($debug);
+    return $context->res->json([
+        'message' => 'Hello, World!',
+        'debug' => $debug
+    ]);
    
 
     if ($context->req->method === 'GET') {     
