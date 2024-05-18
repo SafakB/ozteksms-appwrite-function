@@ -70,26 +70,24 @@ class OztekSms{
             "message" => ""
         ];
     
-        // Satırı : ile ayır
         $parts = explode(":", $line);
     
-        // Doğru formatta olup olmadığını kontrol et
         if (count($parts) == 7) {
             if ($parts[0] == "1") {
-                $result["message"] = "1: Başarılı";
+                $result["message"] = "1: Success";
             } elseif ($parts[0] == "2") {
                 $result["success"] = false;
-                $result["message"] = "2: Hata";
+                $result["message"] = "2: Error - " . $parts[1];
             } else {
                 $result["success"] = false;
-                $result["message"] = "Hatalı format: Bilinmeyen durum kodu";
+                $result["message"] = "Unknow format" . $line;
             }
         } elseif (count($parts) == 2 && $parts[0] == "2") {
             $result["success"] = false;
-            $result["message"] = "2: Hata - " . $parts[1];
+            $result["message"] = "2: Error - " . $parts[1];
         } else {
             $result["success"] = false;
-            $result["message"] = "Hatalı format: " . $line;
+            $result["message"] = "Unknow format" . $line;
         }
     
         return $result;

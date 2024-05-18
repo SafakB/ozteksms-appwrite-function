@@ -34,10 +34,6 @@ function throw_if_missing(mixed $obj, array $keys): void
 
 function sendSms($to, $body)
 {
-    // $userId = $_ENV['OZTEK_USER_ID'];
-    // $username = $_ENV['OZTEK_USERNAME'];
-    // $password = $_ENV['OZTEK_PASSWORD'];
-    // $orginator = $_ENV['OZTEK_ORIGINATOR'];
     $sms = new OztekSms(
         $_ENV['OZTEK_USER_ID'],
         $_ENV['OZTEK_USERNAME'],

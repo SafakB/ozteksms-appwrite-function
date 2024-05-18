@@ -8,7 +8,6 @@ require_once(__DIR__ . '/utils.php');
 return function ($context) {
 
     throw_if_missing($_ENV, [
-        "OZTEK_TEST_PHONE",
         "OZTEK_USER_ID",
         "OZTEK_USERNAME",
         "OZTEK_PASSWORD",
@@ -39,8 +38,6 @@ return function ($context) {
         ]);
     }
 
-    // $to = $_ENV['OZTEK_TEST_PHONE'];
-    // $message = 'Hello, World!';
     $to = $context->req->body['to'];
     $message = $context->req->body['message'];
 
