@@ -15,15 +15,21 @@ return function ($context) {
         "OZTEK_ORIGINATOR"
     ]);
 
+    if($context->req->headers['content-type'] !== 'application/json'){
+        return $context->res->json([
+            'message' => 'Invalid content type',
+            'success' => false
+        ]);
+    }
 
 
     $to = $_ENV['OZTEK_TEST_PHONE'];
     $message = 'Hello, World!';
-    // $to = $context->req->query['to'];
-    // $message = $context->req->query['message'];
+    $to = $context->req->body['to'];
+    $message = $context->req->body['message'];
 
 
-    $context->log($context->req->headers['content-type']);
+    $context->log($to . " " . $message);
     return $context->res->json([
         'message' => 'Invalid phone number',
         'success' => false
